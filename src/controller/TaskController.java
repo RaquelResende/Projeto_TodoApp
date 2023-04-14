@@ -19,7 +19,7 @@ public class TaskController {
 		
 		String sql = "INSERT INTO tasks (id_projects, nome, descricao,"
                 + "completado, notas,prazo,data_criacao"
-                + "data_atualizacao ) VALUES (?,?,?,?,?,?,?,?) ";
+                + " ) VALUES (?,?,?,?,?,?,?) ";
 			
 		Connection conexao = null;  
 		PreparedStatement statement = null;
@@ -34,7 +34,7 @@ public class TaskController {
 			statement.setString(5, task.getNotas());
 			statement.setDate(6, new Date(task.getPrazo().getTime()));
 			statement.setDate(7, new Date(task.getData_criacao().getTime()));
-			statement.setDate(8,new Date(task.getData_atualizacao().getTime()));	
+			
 			statement.execute();
 			
 		}catch(SQLException ex) {
